@@ -1,0 +1,156 @@
+.scraper-container {
+  max-width: 700px;
+}
+
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+  align-items: stretch;
+}
+
+.input-wrapper {
+  flex: 1;
+  min-width: 200px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 16px;
+  color: #8b8b8b;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.url-input {
+  width: 100%;
+  padding: 12px 16px 12px 48px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.url-input:hover {
+  border-color: #9ca3af;
+}
+
+.url-input:focus {
+  border-color: #10a37f;
+  box-shadow: 0 0 0 3px rgba(16, 163, 127, 0.1);
+}
+
+.url-input:disabled {
+  background: #f9fafb;
+  color: #9ca3af;
+}
+
+.scrape-button {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #10a37f 0%, #0d8e6e 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.scrape-button:hover:not(:disabled) {
+  box-shadow: 0 4px 12px rgba(16, 163, 127, 0.3);
+  transform: translateY(-2px);
+}
+
+.scrape-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.scrape-button:disabled,
+.scrape-button.loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .input-group {
+    flex-direction: column;
+  }
+  
+  .input-wrapper {
+    min-width: 100%;
+    width: 100%;
+  }
+  
+  .scrape-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.suggestions {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 1px solid #86efac;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.suggestion-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #10a37f;
+  margin: 0 0 8px 0;
+}
+
+.suggestions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.suggestions li {
+  font-size: 13px;
+  color: #047857;
+  padding: 4px 0;
+  margin: 0;
+}
+
+.suggestions li:before {
+  content: "→ ";
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .input-group {
+    flex-direction: column;
+  }
+
+  .scrape-button {
+    width: 100%;
+    justify-content: center;
+  }
+}

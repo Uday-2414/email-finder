@@ -1,0 +1,16 @@
+{
+  "name": "contact-scraper-pro",
+  "version": "1.0.0",
+  "description": "Professional web scraper for contact extraction with ChatGPT-like UI",
+  "scripts": {
+    "setup": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm start",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "start": "npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
+
