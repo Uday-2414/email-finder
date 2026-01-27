@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: email-finder-backend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: "cd backend && npm install"
+    startCommand: "cd backend && npm start"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: FRONTEND_URL
+        fromService:
+          type: web
+          name: email-finder-frontend
+          property: url
+    healthCheckPath: /api/health
+    healthCheckInterval: 30
+    maxInstances: 1
+
+  - type: web
+    name: email-finder-frontend
+    env: static
+    region: oregon
+    plan: free
+    buildCommand: "cd frontend && npm install && npm run build"
+    staticSite:
+      source: frontend/build
+      routes:
+        - path: "/*"
+          destination: /index.html
+    envVars:
+      - key: REACT_APP_API_URL
+        fromService:
+          type: web
+          name: email-finder-backend
+          property: url
