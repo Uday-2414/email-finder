@@ -3,7 +3,7 @@ services:
     name: email-finder-backend
     env: node
     region: oregon
-    rootDir: backend
+    dir: backend
     plan: free
     buildCommand: "npm install"
     startCommand: "npm start"
@@ -25,7 +25,7 @@ services:
     name: email-finder-frontend
     env: static
     region: oregon
-    rootDir: frontend
+    dir: frontend
     plan: free
     buildCommand: "npm install && npm run build"
     staticSite:
