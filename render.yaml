@@ -17,9 +17,6 @@ services:
           type: web
           name: email-finder-frontend
           property: url
-    healthCheckPath: /api/health
-    healthCheckInterval: 30
-    maxInstances: 1
 
   - type: web
     name: email-finder-frontend
