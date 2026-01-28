@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Sidebar from './components/Sidebar';
 import MainContent from './components/MainContent';
 import { Toaster } from 'react-hot-toast';
+import { API_BASE_URL } from './utils/api';
 import './App.css';
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
 
   useEffect(() => {
     // Check if backend is running
-    fetch('/api/health')
+    fetch(`${API_BASE_URL}/api/health`)
       .then(res => res.json())
       .then(() => setApiHealth(true))
       .catch(() => setApiHealth(false));

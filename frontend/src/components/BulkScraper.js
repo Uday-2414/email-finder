@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Upload, FileSpreadsheet, Loader, Clock } from 'lucide-react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { API_BASE_URL } from '../utils/api';
 import './BulkScraper.css';
 
 function BulkScraper({ onStart, onComplete, isLoading, facebookEmail, facebookPassword }) {
@@ -54,7 +55,7 @@ function BulkScraper({ onStart, onComplete, isLoading, facebookEmail, facebookPa
       formData.append('facebookEmail', facebookEmail);
       formData.append('facebookPassword', facebookPassword);
 
-      const response = await axios.post('/api/upload/excel', formData, {
+      const response = await axios.post(`${API_BASE_URL}/api/upload/excel`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
 
@@ -78,7 +79,7 @@ function BulkScraper({ onStart, onComplete, isLoading, facebookEmail, facebookPa
     setTimeRemaining(estimatedTime);
     
     try {
-      const response = await axios.post('/api/upload/csv', { 
+      const response = await axios.post(`${API_BASE_URL}/api/upload/csv`, { 
         csvText,
         facebookEmail,
         facebookPassword

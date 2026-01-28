@@ -1,0 +1,3 @@
+/*
+  Access-Control-Allow-Origin: *
+  Content-Security-Policy: default-src 'self' 'unsafe-inline' 'unsafe-eval' https:; connect-src 'self' https://email-finder-backend.onrender.com https://email-finder-3.onrender.com

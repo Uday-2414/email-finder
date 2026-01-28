@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Search, Loader } from 'lucide-react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { API_BASE_URL } from '../utils/api';
 import './SingleScraper.css';
 
 function SingleScraper({ onStart, onComplete, isLoading, facebookEmail, facebookPassword }) {
@@ -15,7 +16,7 @@ function SingleScraper({ onStart, onComplete, isLoading, facebookEmail, facebook
 
     onStart();
     try {
-      const response = await axios.post('/api/scraper/single', { 
+      const response = await axios.post(`${API_BASE_URL}/api/scraper/single`, { 
         url,
         facebookEmail,
         facebookPassword,

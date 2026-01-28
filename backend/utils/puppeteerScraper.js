@@ -35,17 +35,19 @@ class BrowserPool {
     try {
       for (let i = 0; i < this.maxBrowsers; i++) {
         const browser = await puppeteer.launch({
-          headless: true,
+          headless: 'new',
           args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
             '--disable-dev-shm-usage',
+            '--no-zygote',
+            '--single-process',
             '--disable-gpu',
             '--no-first-run',
             '--no-default-browser-check',
             '--disable-extensions',
             '--disable-sync',
-            '--disable-images', // Don't load images (faster)
+            '--disable-images',
             '--disable-web-resources',
           ],
         });
